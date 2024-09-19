@@ -1,7 +1,9 @@
+"""Module providing ORM Models"""
 from django.db import models
 
 
 class Employee(models.Model):
+    """Employee model class"""
     full_name = models.CharField(max_length=255)
     position = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=100, blank=True, null=True)
@@ -16,6 +18,7 @@ class Employee(models.Model):
 
 
 class Department(models.Model):
+    """Department model class"""
     name = models.CharField(max_length=255)
     store = models.IntegerField(unique=True)
     branch = models.ForeignKey(
@@ -27,8 +30,6 @@ class Department(models.Model):
 
 
 class Branch(models.Model):
+    """Branch model class"""
     address = models.CharField(max_length=255, blank=True, null=True)
     short_name = models.CharField(max_length=100)
-
-
-
